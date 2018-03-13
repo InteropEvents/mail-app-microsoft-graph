@@ -1,0 +1,464 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    background-color: #ececec;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+    body{
+        font-size:1.2em;
+    }
+}
+
+.login {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+.menu,
+#sample {
+    padding: 1em;
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+}
+
+    .menu .discirption {
+        color: #888;
+        font-size: 0.8em;
+    }
+
+
+@keyframes in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes out {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translateX(99%);
+        opacity: 0.01;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+#sample.slideIn {
+    animation: in .5s forwards;
+}
+
+#sample.slideOut {
+    animation: out .5s forwards;
+}
+
+.category {
+    margin-top: 1em;
+}
+
+
+.categoryHead {
+    background-color: #122892;
+}
+
+    .categoryHead p {
+        margin: 0;
+        padding: 1em;
+        color:#ffffff;
+    }
+
+.categoryInner {
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.6s; 
+    transition: max-height 0.6s;
+}
+
+    .categoryInner a {
+        color: black;
+        display: block;
+        margin: 1em;
+        border-bottom: 1px solid rgba(104, 104, 104, 0.46);
+        text-decoration: none;
+    }
+
+
+    .categoryInner p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+.category.show .categoryInner {
+    max-height: 600px;
+}
+
+.categoryContent {
+}
+
+    .categoryContent p::after {
+        content: " ";
+        height: 0.5em;
+        width: 0.5em;
+        border-width: 0.15em 0.15em 0 0;
+        border-color: #C8C8CD;
+        border-style: solid;
+        transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+        float: right;
+        margin-top: .3em;
+        right: 2px;
+    }
+
+.category.show .categoryContent {
+}
+
+.hidden {
+    display: none;
+}
+
+.box {
+    border: 0.1em solid black;
+    margin-top: 5%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    height:20em;
+    /*max-height:20em;
+    min-height:15em;*/
+}
+
+.container .head{
+    /*border-bottom:0.05em solid #000;*/
+}
+
+.profile {
+    padding: 0 0.5em 0 .5em;
+}
+
+.top {
+    justify-content: space-between;
+    margin-top: -1em;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+    .top input {
+        background-color:#f3f3f3;
+        white-space: normal;
+        margin-top:1em;
+        border-radius: 5px;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 0;
+        outline: none;
+        height: 3em;
+    }
+
+    .top input {
+        border-radius: 0;
+        border-right: none;  
+    }
+    .top .first{
+        border-bottom-left-radius:5px;    
+        border-top-left-radius:5px;        
+    } 
+    .top .last{
+        border-right-style: outset;
+        border-right-width:2px;
+        border-bottom-right-radius:5px;    
+        border-top-right-radius:5px; 
+    }
+
+    .top .input1 {
+        width: 100%;
+    }
+
+    .top .input2 {
+        width: 50%;
+    }
+
+    .top .input3 {
+        width: 33.3%;
+    }
+    .top .input4 {
+        width: 25%;
+    }
+    .top input[type='button']:disabled,
+    .top input[type='button'][disabled] {
+        border: 1px solid #999999;
+        background-color:#cccccc;
+        color:#666666;
+    } 
+.sheet {
+}
+
+
+#sample {
+    background-color: white;
+}
+#sample .container p {
+    margin-left: 0.5em;
+    margin-right: .5em;
+}
+
+#sample .link {
+    color: inherit;
+}
+/*
+    mail-list
+*/
+.mail-item {
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 2px solid gray;
+    font-size: 0.7em;
+    position: relative;
+}
+.mail-item .remind{
+    position: absolute;
+    right: 1em;
+    bottom: 2em;
+    color: red;
+    font-style: oblique;
+}
+    .mail-item:hover {
+        background-color: #cacaca;
+    }
+
+    .mail-item p,
+    .head p {
+        font-size: 0.8em;
+        margin-left: 0.5em;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+    }
+
+    .mail-item .unread {
+        font-size: 0.7em;
+        color: #4e9fc7;
+    }
+
+    .mail-item .date,
+    .mail-one .date {
+        float: right;
+        margin-right: 0.5em;
+        font-size: 0.7em;
+        color: #8aa0ab;
+    }
+
+    .mail-item .date {
+        margin-top: -1.5em;
+    }
+
+.mail-one .date {
+    margin-top: -2em;
+}
+
+.mail-one .head {
+    border-bottom: 2px dashed #dadada;
+}
+
+.mail-item .content {
+    width: 50%;
+    color: #7d7d7d;
+}
+
+.mail-folder {
+    width: 33.3%;
+    display: inline-flex;
+    color: inherit;
+    cursor: inherit;
+    text-decoration: none;
+    box-sizing: border-box;
+    position: relative;
+}
+
+    .mail-folder div {
+        height: 4em;   
+         width: 100%;
+        padding: 0.5em;
+    }
+
+    .mail-folder img {
+        padding: 0.1em;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        border: 0.1em solid #8a8a8a;
+    }
+
+    .mail-folder span {
+        display: block;
+        text-align: center;
+        margin: 0;
+        font-size: 0.7em;
+    }
+
+    .mail-folder .delete {
+        position: absolute;
+        right: .2em;
+        top: .1em;
+        border-radius: 100%;
+        height: 1em;
+        width: 1em;
+        font-size: 1.2em;
+        line-height: 1em;
+        font-size: 1em;
+        background-color: white;
+        border: 0.1em solid black;
+        font-weight: bold;
+        color: red;
+    }
+
+.chooseFolder {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(25, 25, 25, 0.52);
+    /*display:none;*/
+}
+
+    .chooseFolder .folderBox {
+        margin: 5em auto;
+        width: 10em;
+        overflow: hidden;
+        overflow-y: auto;
+        background-color: #ececec;
+        height: 20em;
+        border-radius: 1em;
+        padding: 1.5em;
+    }
+
+        .chooseFolder .folderBox p {
+            border: 0.1em solid;
+            padding: 0.5em;
+            border-radius: 0.2em;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            background-color: white;
+        }
+
+        .chooseFolder .folderBox p:active {
+            background-color: #888;
+        }
+
+.container .content {
+    outline: none;
+}
+
+.container .head {
+}
+
+.form-control input {
+}
+.form-control b {
+    /* width: 4em; */
+    text-align: right;
+    display: inline-block;
+}
+
+.form-control editor {
+    display: block;
+    overflow: visible;
+    resize: none;
+    margin: 0 auto;
+    min-height: 10em;
+    border: 1px solid #c8c8cd;
+    outline: none;
+    padding:5px;
+}
+/*
+    footer
+*/
+.footer {
+    font-size: 0.8em;
+    padding: 0.3em;
+    overflow: auto;
+}
+#response{
+    margin: 0;
+    height: 15em;
+    padding: 0.5em;
+    overflow: hidden;   
+    overflow-x: auto;
+    overflow-y: auto;
+    border: 0.1em solid black;
+    font-size: 0.8em;
+    box-sizing: border-box;
+}
+
+#request,#codeSituation{
+    box-sizing: border-box;
+    height: 5em;    
+    padding: 0.5em;
+    font-size: 0.8em;
+    border: 1px solid black;
+    float: left;
+    border-top: none;
+    overflow: hidden;
+}
+#request{
+    width: 65%;    
+}
+#codeSituation{
+    width: 35%;    
+    border-left: none;
+}
+#response,#request,#codeSituation>div{
+    word-wrap: break-word;    
+}
+
+input[type='button']{
+    background-color:#122892;
+    color:#ffffff;
+    border:none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+input[type='button']:hover{
+    background-color:#4e9fc7;
+}
+.table{
+    width:100%;
+}
+.table input[type='text']{
+    width:100%;
+}
+input[type=text]::-ms-clear {
+    display: none;
+}

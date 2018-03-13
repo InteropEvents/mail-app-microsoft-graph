@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/bluebird.js"></script>
+    <script type="text/javascript" src="scripts/cordova.oauth2.js"></script>
+    <script type="text/javascript" src="scripts/graph-h5-sdk.js"></script>
+
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/graph-mail.js"></script>
+    <script type="text/javascript" src="scripts/graph-meeting.js"></script>
+    <script type="text/javascript" src="scripts/graph-contact.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/index.css" />
+    <title>Mail with O365 and Graph</title>
+</head>
+
+<body>
+    <svg>
+        <defs>
+            <symbol id="icon-cross" viewBox="0 0 32 32">
+                <title>cross</title>
+                <path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
+            </symbol>
+            <symbol id="icon-chevron-left" viewBox="0 0 21 28">
+                <title>chevron-left</title>
+                <path d="M18.297 4.703l-8.297 8.297 8.297 8.297c0.391 0.391 0.391 1.016 0 1.406l-2.594 2.594c-0.391 0.391-1.016 0.391-1.406 0l-11.594-11.594c-0.391-0.391-0.391-1.016 0-1.406l11.594-11.594c0.391-0.391 1.016-0.391 1.406 0l2.594 2.594c0.391 0.391 0.391 1.016 0 1.406z"></path>
+            </symbol>
+        </defs>
+    </svg>
+    <div class="menu">
+        <h3>O365 Mail</h3>
+        <div class="login">
+            <label></label>
+            <a href="javascript:login(true)">login</a>
+        </div>
+        <p class="discirption">
+        </p>
+        <div class="category show">
+            <div class="categoryHead">
+                <p>Mail Scenario</p>
+            </div>
+            <div class="categoryInner">
+                <div class="categoryContent">
+                    <a href="#">
+                        <p>Show Mail List</p>
+                    </a>
+                    <a href="#">
+                        <p>Create Mail</p>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="categoryHead">
+                <p>Meeting Scenario</p>
+            </div>
+            <div class="categoryInner">
+                <div class="categoryContent">
+                    <a href="#">
+                        <p>Show Meeting List</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="categoryHead">
+                <p>Contact Scenario</p>
+            </div>
+            <div class="categoryInner">
+                <div class="categoryContent">
+                    <a href="#">
+                        <p>Show Contact List</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sample" class="hidden">
+        <div style="height:60px;background-color:#122892;display:table;width:100%;">
+            <div style="display:table-row">
+                <div style="display:table-cell;width:60px;">
+                    <button style="background-color:transparent;border-color:transparent;width:60px;height:60px;" onclick="javascript: history.back()">
+                        <svg style="width:32px;height:32px;fill:#ffffff;">
+                            <use xlink:href="#icon-chevron-left"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div style="display:table-cell;width:60px;text-align:left;vertical-align:middle">
+                    <span style="color:#ffffff;">Back</span>
+                </div>
+                <div style="display:table-cell"></div>
+            </div>
+        </div>
+        <h3 id="title">H5 Graph SPA Sample</h3>
+        <!-- Mail -->
+        <div id="Create Mail" class="sheet">
+            <div class="top">
+                <input type="button" class="input1 first last" value="Send Mail" onclick="SendMail()" />
+            </div>
+            <div class="box container form-control">
+                <form>
+                    <div style="padding:8px;">
+                        <table class="table">
+                            <tr>
+                                <td style="width:80px;">To</td>
+                                <td>
+                                    <input name="address" type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:80px;">Subject</td>
+                                <td>
+                                    <input name="subject" type="text" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="padding:8px;" class="content">
+                        <editor contenteditable="true" name="content" style="min-height:200px;border:1px solid #cccccc;"></editor>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="Show Mail List" class="sheet">
+            <div class="box container">
+
+            </div>
+        </div>
+
+        <!-- Meeting -->
+        <div id="Show Meeting List" class="sheet">
+            <div class="box container">
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div id="Show Contact List" class="sheet">
+            <div class="box container">
+            </div>
+        </div>
+
+        <div class="box footer">
+            <div id="request"></div>
+            <br />
+            <pre id="response">
+            <code class="javascript hljs">
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        var graph;
+        function login(relogin) {
+            var setting = {
+                auth_url: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
+                token_url: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
+                logout_url: '',         // recommended if available
+                client_id: '31b07ae3-814a-4438-964a-4bae9d8048c3',          // required
+                other_params: {
+                    scope: 'offline_access openid User.Read Mail.Read Mail.ReadWrite Mail.Send Calendars.Read Calendars.ReadWrite Contacts.ReadWrite'
+                }        // optional params object for scope, state, display...
+            }
+
+            if (typeof cordova !== "undefined") {
+                setting.response_type = "code";
+                setting.redirect_uri = 'https://login.microsoftonline.com/common/oauth2/nativeclient';
+            } else {
+                setting.response_type = "token";
+                setting.redirect_uri = 'http://localhost:8090';
+            }
+            graph = new $.graph(setting, relogin)
+        }
+        login(false);
+    </script>
+</body>
+
+</html>
