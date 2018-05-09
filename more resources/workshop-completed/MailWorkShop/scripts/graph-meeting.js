@@ -3,7 +3,7 @@
 */
 onPanelLoad["Show Meeting List"] = ShowMeetingList;
 
-$.graph.prototype.ListEvent = function () {
+$.graph.prototype.ListEvents = function () {
     //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_events
     return $.get.call(this, "/me/events");
 };
@@ -14,7 +14,7 @@ function ShowMeetingList() {
 
     var container = $(document.getElementById("Show Meeting List")).children(".container").html("");
 
-    graph.ListEvent().then(function (that) {
+    graph.ListEvents().then(function (that) {
         //render
         var data = that.res;
         $.each(data.value, function (index, item) {
