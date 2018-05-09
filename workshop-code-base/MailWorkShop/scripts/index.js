@@ -75,19 +75,17 @@ $(function () {
 
         request.html(""), response.html(""), codeSituation.html("");//clear log console
 
-        $(document.getElementById(params.hash)).show();
-
-        if (onPanelLoad[params.hash]) {
-            onPanelLoad[params.hash]();
-        }
-
         if (location.hash && location.hash.length > 1) {
+
+            var hash = params.hash.replace(/%20/g, " ");
+            onPanelLoad[hash]();
+            $(document.getElementById(hash)).show();
 
             sample.removeClass("hidden");
             sample.removeClass("slideOut");
             sample.addClass("slideIn");
 
-            title.html(params.hash);
+            title.html(hash);
 
         } else {
             sample.removeClass("slideIn");
