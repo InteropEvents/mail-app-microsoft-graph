@@ -8,8 +8,10 @@ This is the FAQ document
 ![alt text](imgs/projectProperties.PNG "Web project right click menu")
 
 2. Select the "Web" settings 
+
 ![alt text](imgs/webProperty.PNG "Web setting panel")
 
 3. Update the port number 
+
 ![alt text](imgs/portNumberSetting.PNG "Port number setting")
 
