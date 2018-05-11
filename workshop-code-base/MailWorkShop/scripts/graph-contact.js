@@ -7,7 +7,7 @@ $.graph.prototype.ListContacts = function () {
     //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_contacts
     // Call the list contacts graph API here
 
-}
+};
 
 function ShowContactList() {
 

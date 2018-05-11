@@ -32,5 +32,5 @@ function ShowMeetingList() {
         });
 
         log(that);
-    })
+    });
 }
