@@ -1,4 +1,4 @@
-# UserName
+# Username
 graph_api_user@outlook.com
 
 # Password

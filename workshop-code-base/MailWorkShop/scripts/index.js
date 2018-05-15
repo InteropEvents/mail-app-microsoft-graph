@@ -9,18 +9,18 @@ Date.prototype.toUTCString = function () {
         zeroCompletion(this.getDate()) + "T" +
         zeroCompletion(this.getHours()) + ":" +
         zeroCompletion(this.getMinutes()) + ":" +
-        zeroCompletion(this.getSeconds())
-}
+        zeroCompletion(this.getSeconds());
+};
 
 Object.defineProperty(Date, "timeZone", {
     get: function () {
         var hourOffset = parseInt(new Date().getTimezoneOffset() / 60);
         return "Etc/GMT" +
             (hourOffset > 0 ? "+" + hourOffset :
-                hourOffset == 0 ? "" :
+                hourOffset === 0 ? "" :
                     "-" + Math.abs(hourOffset));
     }
-})
+});
 
 var params;
 var onPanelLoad = {};
@@ -33,7 +33,7 @@ $(function () {
     menus.find("a").each(function () {
         var $this = $(this);
         $this.attr("href", "#" + $this.find("p").text());
-    })
+    });
     menus.find(".categoryHead").click(function () {
         var parent = $(this).parent();
         if (parent.hasClass("show")) {
@@ -42,7 +42,7 @@ $(function () {
             menus.removeClass("show");
             parent.addClass("show");
         }
-    })
+    });
 
     var sample = $("#sample");
     var title = $("#title");
@@ -91,19 +91,19 @@ $(function () {
             sample.removeClass("slideIn");
             sample.addClass("slideOut");
         }
-    }, false)
+    }, false);
 
     sample.on("animationend", function () {
         if ($(this).hasClass("slideOut"))
             $(this).addClass("hidden");
-    })
+    });
 
     //trigger the event named hashchange
     var e = window.document.createEvent("HTMLEvents");
     e.initEvent("hashchange", true, false);
     window.dispatchEvent(e);
 
-})
+});
 
 function log(that) {
     var footer = $(".footer");
