@@ -77,7 +77,7 @@ $(function () {
 
         if (location.hash && location.hash.length > 1) {
 
-            var hash = params.hash.replace(/%20/g, " ");
+            var hash = decodeURI(params.hash);
             onPanelLoad[hash]();
             $(document.getElementById(hash)).show();
 

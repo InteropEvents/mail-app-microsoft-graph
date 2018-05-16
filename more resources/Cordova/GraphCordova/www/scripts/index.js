@@ -472,10 +472,12 @@ $(function () {
 
         request.html(""), response.html(""), codeSituation.html("");//clear log console
 
-        $(document.getElementById(params.hash)).show();
+        hash = decodeURI(params.hash);
 
-        if (map[params.hash]) {
-            map[params.hash]();
+        $(document.getElementById(hash)).show();
+
+        if (map[hash]) {
+            map[hash]();
         }
 
         if (location.hash && location.hash.length > 1) {
@@ -484,7 +486,7 @@ $(function () {
             sample.removeClass("slideOut");
             sample.addClass("slideIn");
 
-            title.html(params.hash);
+            title.html(hash);
 
         } else {
             sample.removeClass("slideIn");
