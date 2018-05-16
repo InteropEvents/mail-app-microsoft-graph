@@ -15,3 +15,6 @@ This is the FAQ document
 
 ![alt text](imgs/portNumberSetting.PNG "Port number setting")
 
+## How to make a post call
+#### $.post.call(this, "PlaceHolder_Action", data);
+
