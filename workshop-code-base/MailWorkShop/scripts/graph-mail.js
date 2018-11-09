@@ -12,7 +12,6 @@ $.graph.prototype.GetUser = function () {
     $.graph.prototype.SendMail = function (data) {
         //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_sendmail
         //Call the send mail graph API here
-        
     },
     $.graph.prototype.Listmessages = function () {
         //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_messages
@@ -29,7 +28,7 @@ function CreateMail() {
 
     GetMyProfile().then(function (me) {
         var date = new Date();
-        form.address.value = "jnlxu@microsoft.com"
+        form.address.value = "abbywang1@outlook.com"
         form.subject.value = "Microsoft DevDays 2018: Build the cloud mail App";
         content.html("I built the mail app to send mail in Microsoft DevDays 2018 - Hello from " + me.displayName);
     })
