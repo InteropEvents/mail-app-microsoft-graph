@@ -28,9 +28,9 @@ function CreateMail() {
 
     GetMyProfile().then(function (me) {
         var date = new Date();
-        form.address.value = "abbywang1@outlook.com"
-        form.subject.value = "Microsoft DevDays 2018: Build the cloud mail App";
-        content.html("I built the mail app to send mail in Microsoft DevDays 2018 - Hello from " + me.displayName);
+        form.address.value = "weilin@microsoft.com";
+        form.subject.value = "Microsoft DevDays 2019: Build the cloud mail App";
+        content.html("I built the mail app to send mail in Microsoft DevDays 2019 - Hello from " + me.displayName);
     })
 }
 
